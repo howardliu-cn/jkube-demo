@@ -52,6 +52,17 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <k8s.deployment.replicas>1</k8s.deployment.replicas>
+<!--                <k8s.deployment.mem.min>256Mi</k8s.deployment.mem.min>-->
+<!--                <k8s.deployment.mem.max>512Mi</k8s.deployment.mem.max>-->
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -119,6 +130,7 @@
                             <goal>resource</goal>
                             <goal>build</goal>
                             <goal>push</goal>
+                            <goal>deploy</goal>
                         </goals>
                     </execution>
                 </executions>
